@@ -180,38 +180,39 @@
 
 				</script></section>
 
-				<section data-state="state2"
+				<section data-state="state3"
 					data-markdown><script type="text/template">
-					## Viscous fluids
+					## Fuzzy
 
 					* requirejs: .js indicates URL, will likely remove
-					* node: fuzzy about allowing '.js', suffixes
+					* node: allows '.js', suffixes
 					* node: file path used as key into cache space
 				</script></section>
 
-				<section data-state="state2"
+				<section data-state="state3"
 					data-markdown><script type="text/template">
-					## IDs not URLs/paths
+					## Favor IDs over URLs/paths
 
 					* Best long term to keep them separate in your code
 				</script></section>
 
 <!-- IDs as indirection -->
 
-				<section data-state="state2"
+				<style>html.state4 body { background-image: url("images/indirection.png");}</style>
+				<section data-state="state4"
 					data-markdown><script type="text/template">
 					## IDs as indirection
 				</script></section>
 
-				<section data-state="state2"
+				<section data-state="state4"
 					data-markdown><script type="text/template">
-					## AMD map config: master of indirection
+					## [AMD map config](https://github.com/amdjs/amdjs-api/blob/master/CommonConfig.md#map-)
 
 					For this module ID prefix, if it asks for that module ID prefix,
 					use alternate one instead
 				</script></section>
 
-				<section data-state="state1"
+				<section data-state="state4"
 					data-markdown><script type="text/template">
 					## map config
 
@@ -224,13 +225,12 @@
 						}
 					});
 
-					// in module 'transform'
+					// in module 'transform', gets matrix-2.0.0
 					define(function(require) {
-						// Will get the matrix-2.0.0 module
 						var matrix = require('matrix');
 					});
 
-					// in module 'effects'
+					// in module 'effects', gets matrix
 					define(function(require) {
 						var matrix = require('matrix');
 					});
@@ -238,9 +238,9 @@
 				</script></section>
 
 
-				<section data-state="state1"
+				<section data-state="state4"
 					data-markdown><script type="text/template">
-					## Alternate providers, or [mocks](http://weblog.bocoup.com/effective-unit-testing-with-amd/)
+					## Alt providers
 
 					```javascript
 					requirejs.config({
@@ -252,15 +252,16 @@
 						}
 					});
 
-					// in module 'combine'
+					// in module 'combine', gets lodash module
 					define(function(require) {
-						// Will get the lodash module
 						var _ = require('underscore');
 					});
 					```
+
+					also [test mocks](http://weblog.bocoup.com/effective-unit-testing-with-amd/)
 				</script></section>
 
-				<section data-state="state1"
+				<section data-state="state4"
 					data-markdown><script type="text/template">
 					## jQuery with plugins
 
@@ -295,7 +296,7 @@
 					```
 				</script></section>
 
-				<section data-state="state1"
+				<section data-state="state4"
 					data-markdown><script type="text/template">
 					## Just jQuery from a CDN
 
@@ -310,51 +311,47 @@
 
 <!-- IDs that are not paths -->
 
-				<section data-state="state2"
+				<style>html.state5 body { background-image: url("images/notpaths.png");}</style>
+				<section data-state="state5"
 					data-markdown><script type="text/template">
-					## IDs that are not paths
+					## When ID !== JS path
 				</script></section>
 
 
-				<section data-state="state2"
+				<section data-state="state5"
 					data-markdown><script type="text/template">
 					## Inlined definition
 
-					```html
-					<!-- CMS injects other tags here,
-					     not under your control -->
-					<script src="require.js"></script>
-					<script>
-			      requirejs.config({});
+```javascript
+// CMS injects other script tags above this inline script
+requirejs.config({});
 
-			      if (typeof jQuery === 'function') {
-			        define('jquery', function() {
-			          return jQuery;
-			        });
-			      }
+if (typeof jQuery === 'function') {
+  define('jquery', function() {
+    return jQuery;
+  });
+}
 
-			      requirejs(['main']);
-			     </script>
-					```
+requirejs(['main']);
+```
 				</script></section>
 
-				<section data-state="state2"
+				<section data-state="state5"
 					data-markdown><script type="text/template">
-					## AMD: loader plugin references
+					## AMD: loader plugins
 
-					```javascript
-					define(function(require) {
-			    	var detailsFn = require('tmpl!details.html');
-
-			    	node.innerHTML = detailsFn(data);
-			    });
-					```
+```javascript
+define(function(require) {
+	var detailsFn = require('tmpl!details.html');
+	node.innerHTML = detailsFn(data);
+});
+```
 				</script></section>
 
 
-				<section data-state="state2"
+				<section data-state="state5"
 					data-markdown><script type="text/template">
-					## AMD: loader plugin references
+					## AMD: loader plugins
 
 					* Great for transpiled resources
 					* Optimizing can inline define() of the JS
@@ -363,17 +360,13 @@
 
 <!-- Bundling -->
 
-				<section data-state="state2"
+				<style>html.state6 body { background-image: url("images/bundle.png");}</style>
+				<section data-state="state6"
 					data-markdown><script type="text/template">
 					## Bundling
-
-					* SPDY/HTTP2
-					* browserify
-					* AMD bundling
-					* Other bundling
 				</script></section>
 
-				<section data-state="state2"
+				<section data-state="state6"
 					data-markdown><script type="text/template">
 					##SPDY/HTTP2
 
@@ -383,26 +376,26 @@
 					* client pull
 				</script></section>
 
-				<section data-state="state2"
+				<section data-state="state6"
 					data-markdown><script type="text/template">
 					## SPDY/HTTP2 server push
 
 					* Start with [basic example](https://coderwall.com/p/2gfk4w)
-					* When get module request, trace deps, `response.push` others
+					* Trace deps, `response.push` others
 					* Use digests in cookies to know what has been received
 				</script></section>
 
-				<section data-state="state2"
+				<section data-state="state6"
 					data-markdown><script type="text/template">
 					## SPDY/HTTP2 client pull
 
 					* Trace all dependencies, push it browser
-					* Override loader hooks to ask for deps When
+					* Override loader hooks to ask for deps
 					* [systemjs example](https://github.com/systemjs/systemjs/blob/master/lib/extension-depCache.js)
-					* requirejs: similar. Override requirejs.load() to know when to request more.
+					* requirejs: similar. Override requirejs.load()
 				</script></section>
 
-				<section data-state="state2"
+				<section data-state="state6"
 					data-markdown><script type="text/template">
 					## browserify
 
@@ -410,7 +403,7 @@
 					* No loading, just bundling and ID resolution
 				</script></section>
 
-				<section data-state="state2"
+				<section data-state="state6"
 					data-markdown><script type="text/template">
 					## browserify
 
@@ -418,15 +411,15 @@
 					* No loading, just bundling and ID resolution
 				</script></section>
 
-				<section data-state="state2"
+				<section data-state="state6"
 					data-markdown><script type="text/template">
 					## AMD bundling
 
 					* [requirejs optimizer](http://requirejs.org/docs/optimization.html), [cram](https://github.com/cujojs/cram) [Dojo](http://dojotoolkit.org/)
-					* [AMDclean](https://github.com/gfranko/amdclean), no loading, just bundling and module API removal
+					* [AMDclean](https://github.com/gfranko/amdclean): just bundle, API removal
 				</script></section>
 
-				<section data-state="state2"
+				<section data-state="state6"
 					data-markdown><script type="text/template">
 					## Other bundling
 
@@ -434,14 +427,14 @@
 					* [Asset Graph](https://github.com/assetgraph/assetgraph)
 				</script></section>
 
-				<section data-state="state2"
+				<section data-state="state1"
 					data-markdown><script type="text/template">
 					## notobo
 
 					Use npm to distribute deps, requirejs at build/runtime
 				</script></section>
 
-				<section data-state="state2"
+				<section data-state="state1"
 					data-markdown><script type="text/template">
 					## notobo
 
