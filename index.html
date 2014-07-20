@@ -387,12 +387,28 @@ define(function(require) {
 
 				<section data-state="state6"
 					data-markdown><script type="text/template">
+					## SPDY/HTTP2 server push
+
+					* What is already in cache?
+					* Cache or cookie cleared separately
+				</script></section>
+
+				<section data-state="state6"
+					data-markdown><script type="text/template">
 					## SPDY/HTTP2 client pull
 
 					* Trace all dependencies, push it browser
 					* Override loader hooks to ask for deps
 					* [systemjs example](https://github.com/systemjs/systemjs/blob/master/lib/extension-depCache.js)
 					* requirejs: similar. Override requirejs.load()
+				</script></section>
+
+				<section data-state="state6"
+					data-markdown><script type="text/template">
+					## SPDY/HTTP2
+
+					* Test vs [common and page bundling](https://github.com/requirejs/example-multipage)
+					* requirejs [bundles config](http://requirejs.org/docs/api.html#config-bundles)
 				</script></section>
 
 				<section data-state="state6"
