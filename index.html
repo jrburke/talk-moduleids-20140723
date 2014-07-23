@@ -374,6 +374,30 @@ define(function(require) {
 
 				<section data-state="state6"
 					data-markdown><script type="text/template">
+					## AMD bundling
+
+					* [requirejs optimizer](http://requirejs.org/docs/optimization.html), [cram](https://github.com/cujojs/cram) [Dojo](http://dojotoolkit.org/)
+					* [AMDclean](https://github.com/gfranko/amdclean): just bundle, API removal
+				</script></section>
+
+				<section data-state="state6"
+					data-markdown><script type="text/template">
+					## Other bundling
+
+					* [webpack](http://webpack.github.io/)
+					* [Asset Graph](https://github.com/assetgraph/assetgraph)
+				</script></section>
+
+				<section data-state="state6"
+					data-markdown><script type="text/template">
+					## [browserify](http://browserify.org/)
+
+					* Bundles Node modules laid out via node_modules
+					* No loading, just bundling and ID resolution
+				</script></section>
+
+				<section data-state="state6"
+					data-markdown><script type="text/template">
 					##SPDY/HTTP2
 
 					* Avoids multiple network connections
@@ -419,44 +443,15 @@ define(function(require) {
 
 				<section data-state="state6"
 					data-markdown><script type="text/template">
-					## browserify
-
-					* Bundles Node modules laid out via node_modules
-					* No loading, just bundling and ID resolution
+					## [Long live bundling](https://github.com/jrburke/module/blob/master/docs/inlining.md)
 				</script></section>
 
-				<section data-state="state6"
-					data-markdown><script type="text/template">
-					## AMD bundling
-
-					* [requirejs optimizer](http://requirejs.org/docs/optimization.html), [cram](https://github.com/cujojs/cram) [Dojo](http://dojotoolkit.org/)
-					* [AMDclean](https://github.com/gfranko/amdclean): just bundle, API removal
-				</script></section>
-
-				<section data-state="state6"
-					data-markdown><script type="text/template">
-					## Other bundling
-
-					* [webpack](http://webpack.github.io/)
-					* [Asset Graph](https://github.com/assetgraph/assetgraph)
-				</script></section>
 
 				<section data-state="state1"
 					data-markdown><script type="text/template">
-					## notobo
-
-					Use npm to distribute deps, requirejs at build/runtime
+					## Questions
 				</script></section>
 
-				<section data-state="state1"
-					data-markdown><script type="text/template">
-					## notobo
-
-					* Use npm to install deps
-					* If dep is CJS, wraps in a define()
-					* Updates requirejs config
-					* Does not require a build, get AMD tooling
-				</script></section>
 		</div>
 
 		<a id="imgattr" target="_blank" href=""></a>
